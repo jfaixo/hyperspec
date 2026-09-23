@@ -25,6 +25,7 @@
   - [1. Design — `edit-specs`](#1-design--edit-specs)
   - [2. Realign — `align-code-to-specs`](#2-realign--align-code-to-specs)
   - [3. Assess — `assess-alignment` (optional)](#3-assess--assess-alignment-optional)
+- [🧰 Utility Skills](#-utility-skills)
 
 
 ## ℹ️ What is Hyperspec?
@@ -111,3 +112,14 @@ flowchart LR
     Plan -->|Code gaps| ToAlign(["→ align-code-to-specs"])
     Plan -->|None| Done(["Aligned ✔"])
 ```
+
+
+## 🧰 Utility Skills
+
+Hyperspec also provides utility skills to streamline session management and continuous agent improvement:
+
+| Skill | Description | When to Use |
+| :--- | :--- | :--- |
+| `complete-conversation` | Finalizes a session by staging, committing changes, merging/fast-forwarding branches, and cleaning up worktrees. | When work is approved and you are ready to wrap up the conversation. |
+| `conversation-post-mortem` | Analyzes a completed conversation to uncover agent struggles, identify friction points, and suggest mitigations or instruction updates. | After a session to diagnose agent shortcomings and continuously improve agent instructions. |
+

@@ -1,5 +1,5 @@
 ---
-hyperspec-version: 0.1.2
+hyperspec-version: 0.2.0
 ---
 # Alignment Assessment: [Target Component/System Name]
 
