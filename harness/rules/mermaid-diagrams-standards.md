@@ -1,6 +1,7 @@
 ---
 trigger: glob
 globs: *.md
+tags: opinionated
 ---
 ## Mermaid Diagrams Standards
 

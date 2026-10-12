@@ -1,6 +1,7 @@
 ---
 trigger: glob
 globs: *.md
+tags: opinionated
 ---
 ## Enforce unique Acceptance Test identifiers
 

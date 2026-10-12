@@ -1,20 +1,22 @@
 ---
 name: conversation-post-mortem
 description: Run a post mortem on a completed conversation to identify AI struggles, propose mitigations, and update instructions to improve future conversations.
+disable-model-invocation: true
 ---
 
 # Conversation Post Mortem Skill
 
-I will run a post mortem on a completed conversation to identify AI struggles, propose mitigations, and update skills to improve future interactions.
+## Execution Role
+Run a post mortem on a completed conversation to identify AI struggles, propose mitigations, and update skills to improve future interactions.
 
-## Guardrails
+## Operational Constraints
 
 - Thoroughly review the entire conversation log before acting
 - Provide concrete, actionable mitigation proposals
 - **DO NOT** update any skills, or files without explicit user validation
 - Ensure any updates align with existing architectural principles and repository guidelines
 
-## Steps
+## Procedure
 
 ### 1. Review and Extract Pain Points
 
@@ -47,8 +49,20 @@ I will run a post mortem on a completed conversation to identify AI struggles, p
 - Apply the changes exactly as agreed upon (updating skills, documentation, etc.).
 - Provide a brief summary of the applied updates to close the post-mortem session.
 
-## Principles
-
+## Gotchas
+<gotchas>
 - Be concise but complete when extracting pain points
 - Make mitigations durable (e.g., updating files) rather than temporary
 - Always prioritize user consent before modifying agent instructions
+</gotchas>
+
+## Output Schema
+<output_contract>
+Upon completing, emit a report:
+
+### Post Mortem Summary
+- **Pain point #1**: [MITIGATED|NOT-MITIGATED]
+  - `Mitigation: [Mitigation type (skill, documentation, etc.)]`
+  - `Summary: [Summary of the pain point]`
+  - `Resolution: [What was done to mitigate it]`
+</output_contract>

@@ -87,7 +87,7 @@ flowchart LR
     Review -->|Yes| Approved["→ APPROVED"]
 ```
 
-### 2. Realign — `align-code-to-specs`
+### 2. Realign — `align-to-specs`
 
 The agent diffs the approved specs, writes failing tests first, then applies clean code until the build and **all** tests pass — marking each chapter `ALIGNED`.
 
@@ -109,7 +109,7 @@ flowchart LR
     Run(["On demand"]) --> Audit["Two-way audit<br/>+ full test run"]
     Audit --> Plan{"Gaps?"}
     Plan -->|Spec gaps| ToEdit(["→ edit-specs"])
-    Plan -->|Code gaps| ToAlign(["→ align-code-to-specs"])
+    Plan -->|Code gaps| ToAlign(["→ align-to-specs"])
     Plan -->|None| Done(["Aligned ✔"])
 ```
 

@@ -1,9 +1,9 @@
 ---
-name: align-code-to-specs
+name: align-to-specs
 description: Identify gaps between the specs expected product state and the codebase, and realign the codebase to the specs.
 ---
 
-# Agent Skill: Align Code to Specs
+# Agent Skill: Align to Specs
 
 This skill is used to identify gaps between the specifications' expected product state and the codebase, and realign the codebase to the specifications.
 

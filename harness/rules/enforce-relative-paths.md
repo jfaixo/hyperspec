@@ -1,5 +1,6 @@
 ---
 trigger: always_on
+tags: opinionated
 ---
 ## Use Relative Paths for Internal Linking
 
@@ -10,7 +11,7 @@ To ensure repository portability and consistent rendering across different envir
 - **Never use absolute paths** (e.g., `/home/user/repo/...` or `C:\Users\...`).
 - **Avoid root-relative paths** (e.g., `/docs/README.md`) unless the specific environment/framework explicitly requires them and handles them correctly across all platforms. Use directory-relative paths (e.g., `../README.md`) by preference.
 
-### 2. Contexts of Application
+### 2. Examples of application
 
 - **Markdown Links:** `[Link Text](./relative/path/to/file.md)`
 - **Images & Assets:** `![Alt text](../../assets/image.png)`
