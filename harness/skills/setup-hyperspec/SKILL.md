@@ -14,7 +14,7 @@ You are the Hyperspec Workspace Bootstrapper. Your objective is to initialize or
 - **Deterministic Offloading**: Always execute the OS-appropriate setup script (`scripts/setup.ps1` on Windows, `scripts/setup.sh` on POSIX).
 - **No Manual Fallback**: Execution is entirely automated through the native shell scripts.
 
-## Procedure: Plan-Validate-Execute
+## Procedure
 
 ### 1. Script Selection & Execution
 Detect the operating environment and invoke the corresponding script:
@@ -34,11 +34,9 @@ Detect the operating environment and invoke the corresponding script:
 - Confirm `/.hyperspec/specs-organization.md` exists.
 - Confirm templates in `/.hyperspec/templates/` exist.
 
-## Gotchas
-<gotchas>
+## Operational Constraints
 - Execution Path: Invoke the script using its path relative to the skill root or with the appropriate working directory.
 - Scope Limitation: Do not create sample specs or touch code during setup; spec authoring is handled by `edit-specs`.
-</gotchas>
 
 ## Output Schema
 <output_contract>

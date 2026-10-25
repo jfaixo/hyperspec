@@ -17,8 +17,7 @@ Each entry of the tree is composed of the following elements, on the same line:
 
 These indexes are used to help browsing the repository content and find relevant information.
 
-## Gotchas
-<gotchas>
+## Operational Constraints
 - All the existing `directory_map.md` files in the root folder and its subfolders must be updated.
 - No new `directory_map.md` files should be created. If a `directory_map.md` file does not exist in a folder, the skill should not create one. It should only update existing `directory_map.md` files.
 - Paths must be workspace relative and use forward slashes (`/`) as separators, regardless of the operating system.
@@ -26,4 +25,3 @@ These indexes are used to help browsing the repository content and find relevant
 - The folder hierarchy should be represented as a tree structure using indentation and unicode characters to represent branches (e.g., `├──`, `└──`, `│`).
 - End each line with a double space to ensure proper line breaks in markdown.
 - Use the non breaking space character (` `) for indentation to ensure that the formatting is preserved when rendered in markdown.
-</gotchas>

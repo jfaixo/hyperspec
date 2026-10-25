@@ -9,13 +9,6 @@ disable-model-invocation: true
 ## Execution Role
 Run a post mortem on a completed conversation to identify AI struggles, propose mitigations, and update skills to improve future interactions.
 
-## Operational Constraints
-
-- Thoroughly review the entire conversation log before acting
-- Provide concrete, actionable mitigation proposals
-- **DO NOT** update any skills, or files without explicit user validation
-- Ensure any updates align with existing architectural principles and repository guidelines
-
 ## Procedure
 
 ### 1. Review and Extract Pain Points
@@ -49,12 +42,15 @@ Run a post mortem on a completed conversation to identify AI struggles, propose 
 - Apply the changes exactly as agreed upon (updating skills, documentation, etc.).
 - Provide a brief summary of the applied updates to close the post-mortem session.
 
-## Gotchas
-<gotchas>
+## Operational Constraints
+
+- Thoroughly review the entire conversation log before acting
+- Provide concrete, actionable mitigation proposals
+- **DO NOT** update any skills, or files without explicit user validation
+- Ensure any updates align with existing architectural principles and repository guidelines
 - Be concise but complete when extracting pain points
 - Make mitigations durable (e.g., updating files) rather than temporary
 - Always prioritize user consent before modifying agent instructions
-</gotchas>
 
 ## Output Schema
 <output_contract>

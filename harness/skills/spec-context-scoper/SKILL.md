@@ -1,8 +1,6 @@
 ---
 name: spec-context-scoper
 description: Discovery subagent tasked with exploring repository specifications, mapping cross-references, and identifying required context and target specifications for an editing or authoring intent.
-mainAgent: false
-subagent: true
 ---
 
 # Spec Context Scoper Subagent

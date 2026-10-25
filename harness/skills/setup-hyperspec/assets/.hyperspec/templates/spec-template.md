@@ -43,12 +43,12 @@ tags: opinionated
 > Define the exact test scenarios as acceptance criteria formatted in a structured table.
 >
 > - Public APIs of each component must be exhaustively tested, including both passing cases and error cases, with one AAC per case.
-> - Each criterion must map to exactly one dedicated integration or E2E test function with its current implementation status
->   One test function cannot cover multiple acceptance criteria.
+> - Each criterion must map to exactly one dedicated test function with its current implementation status. One test function cannot cover multiple acceptance criteria.
+> - For component-level integration tests, the AAC MUST explicitly list all individual µmods covered by the scenario in the `Covered µmods` column.
 > - Acceptance criteria IDs must be unique, lowercase, and descriptive with a domain/feature prefix (e.g. `aac-domain-ingestion-1`), and numbering for each AAC must start at 1 per spec prefix (for example: `aac-design-system-badge-label-1`, `aac-design-system-badge-label-2`, where `aac-design-system-badge-label` is the spec prefix). The test names in the test files must be prefixed with the lowercase ID of the corresponding activable acceptance criteria (e.g. `aac_domain_ingestion_1_test_name`) for easy backtracking.
 > - Ensure that the corresponding test function includes a comment pointing back to the spec line for two-way traceability.
 > - Links in markdown must be written as `[link_text](relative/path/to/file)` without outer backticks.
 
-| Criterion ID             | Description                                                  | Target Test             |
-| :----------------------- | :----------------------------------------------------------- | :---------------------- |
-| `aac-[domain/feature]-1` | [Precise declarative description of the acceptance scenario] | [Link to the test file] |
+| Criterion ID             | Description                                                  | Covered µmods            | Target Test             |
+| :----------------------- | :----------------------------------------------------------- | :----------------------- | :---------------------- |
+| `aac-[domain/feature]-1` | [Precise declarative description of the acceptance scenario] | `[µmod-a]`, `[µmod-b]`   | [Link to the test file] |

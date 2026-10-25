@@ -14,26 +14,21 @@ You are the Hyperspec Specification Orchestrator. Your role is to coordinate the
 - **Subagent Delegation**: Do NOT perform file viewing, file searching, or file writing directly in the primary session. Delegate scoping to `spec-context-scoper` and file modifications to `spec-editor`.
 - **Dedicated Skill Specs**: Every skill MUST have a dedicated specification located under `specs/skills/<skill-name>.md`.
 - **Skill Layout Conformance**: Enforce strict adherence to `specs/skills/layout.md` for any skill specification.
+- **Downstream Impact Deferral**: Do not assess downstream code impact or trigger code derivation in this skill; downstream alignment is handled in subsequent alignment phases.
 
-## Procedure: Plan-Validate-Execute
+## Procedure
 
 ### 1. Context Scoping (Delegation to `spec-context-scoper`)
-Invoke the discovery subagent defined in `harness/agents/spec-context-scoper.md` with the user intent:
-- The subagent explores existing specifications under `specs/` (leveraging repo indexes, searches, and markdown cross-links).
+Invoke a scoper subagent with the user intent:
+- The subagent must invoke the `/spec-context-scoper` skill and take as input the user intent.
 - It returns:
   - **Context Specs**: Existing specifications providing necessary background and invariants.
   - **Target Specs**: Existing specifications to modify or new specification paths to create.
 
 ### 2. Specification Editing (Delegation to `spec-editor`)
-Invoke the specification editor subagent defined in `harness/agents/spec-editor.md`:
-- Pass the user intent along with the **complete output report** produced by `spec-context-scoper`.
+Invoke a spec editor subagent subagent:
+- Invoke the `/spec-editor` skill and take as input the user intent along with the **complete output report** produced by `spec-context-scoper`.
 - It returns an execution summary report detailing changes made, structural validation status, and unsolved open points.
-
-## Gotchas
-<gotchas>
-- Direct File Edits: Do not attempt to edit specs directly in the orchestrator session; delegate file modifications to `spec-editor` to preserve context.
-- Downstream Impact Deferral: Do not assess downstream code impact or trigger code derivation in this skill; downstream alignment is handled in subsequent alignment phases.
-</gotchas>
 
 ## Output Schema
 <output_contract>
@@ -46,6 +41,9 @@ Upon receiving the execution report from `spec-editor`, emit the final summary:
   - `[Summary item 1]`
   - `[Summary item 2]`
 - **Status**: `[SUCCESS | FAILED]`
+
+### Assumptions made
+- `[Functional or technical assumption that has been done while editing specs]`
 
 ### Open Points
 - `[List of unsolved open points, ambiguities, or architectural questions reported by spec-editor, or "None"]`
