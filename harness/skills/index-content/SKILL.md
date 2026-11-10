@@ -3,7 +3,7 @@ name: index-content
 description: Updates the repository content indexes.
 ---
 
-# Repository Content Indexer
+## Role & Purpose
 
 Update the repository content indexes.
 
@@ -18,6 +18,7 @@ Each entry of the tree is composed of the following elements, on the same line:
 These indexes are used to help browsing the repository content and find relevant information.
 
 ## Operational Constraints
+
 - All the existing `directory_map.md` files in the root folder and its subfolders must be updated.
 - No new `directory_map.md` files should be created. If a `directory_map.md` file does not exist in a folder, the skill should not create one. It should only update existing `directory_map.md` files.
 - Paths must be workspace relative and use forward slashes (`/`) as separators, regardless of the operating system.
@@ -25,3 +26,16 @@ These indexes are used to help browsing the repository content and find relevant
 - The folder hierarchy should be represented as a tree structure using indentation and unicode characters to represent branches (e.g., `├──`, `└──`, `│`).
 - End each line with a double space to ensure proper line breaks in markdown.
 - Use the non breaking space character (` `) for indentation to ensure that the formatting is preserved when rendered in markdown.
+
+## Prodedure
+
+### Case A: Direct invocation
+
+When directly invoked:
+
+1. Find all the `directory_map.md` files in the repository.
+2. Spawn a subagent per `directory_map.md` to update it, invoking the index skill with the path to the `directory_map.md` file as argument.
+
+### Case B: `directory_map.md` update requested
+
+When invoked with a `directory_map.md` file as argument, update that file.

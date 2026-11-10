@@ -3,6 +3,7 @@ trigger: glob
 globs: *.md
 tags: opinionated
 ---
+
 ## Mermaid Diagrams Standards
 
 When you decide to write or modify Mermaid diagrams anywhere in the workspace, you must adhere to the following standards:

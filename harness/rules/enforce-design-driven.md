@@ -1,9 +1,11 @@
 ---
 trigger: always_on
 ---
+
 ## Enforce Hyperspec
 
 All conversations MUST use one of the following entrypoint skill:
+
 - edit-specs
 - align-to-specs
 - conversation-post-mortem

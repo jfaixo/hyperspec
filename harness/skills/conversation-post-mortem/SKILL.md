@@ -7,6 +7,7 @@ disable-model-invocation: true
 # Conversation Post Mortem Skill
 
 ## Execution Role
+
 Run a post mortem on a completed conversation to identify AI struggles, propose mitigations, and update skills to improve future interactions.
 
 ## Procedure
@@ -53,12 +54,14 @@ Run a post mortem on a completed conversation to identify AI struggles, propose 
 - Always prioritize user consent before modifying agent instructions
 
 ## Output Schema
+
 <output_contract>
 Upon completing, emit a report:
 
 ### Post Mortem Summary
+
 - **Pain point #1**: [MITIGATED|NOT-MITIGATED]
   - `Mitigation: [Mitigation type (skill, documentation, etc.)]`
   - `Summary: [Summary of the pain point]`
   - `Resolution: [What was done to mitigate it]`
-</output_contract>
+    </output_contract>

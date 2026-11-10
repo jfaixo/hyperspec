@@ -2,6 +2,7 @@
 trigger: always_on
 tags: opinionated
 ---
+
 ## Use Relative Paths for Internal Linking
 
 To ensure repository portability and consistent rendering across different environments (local development, CI/CD, documentation portals), you MUST always use relative paths for internal links.

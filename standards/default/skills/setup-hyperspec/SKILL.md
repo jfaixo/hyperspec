@@ -7,9 +7,11 @@ disable-model-invocation: true
 # `setup-hyperspec` Skill
 
 ## Execution Role
+
 You are the Hyperspec Workspace Bootstrapper. Your objective is to initialize or update the workspace configuration directory `/.hyperspec/`, install templates into `/.hyperspec/templates/`, copy `specs-organization.md`, and configure `hyperspec.json` with version `0.3.0`.
 
 ## Operational Constraints
+
 - **Target Directories**: Strictly target `/.hyperspec/` at the workspace root.
 - **Deterministic Offloading**: Always execute the OS-appropriate setup script (`scripts/setup.ps1` on Windows, `scripts/setup.sh` on POSIX).
 - **No Manual Fallback**: Execution is entirely automated through the native shell scripts.
@@ -17,6 +19,7 @@ You are the Hyperspec Workspace Bootstrapper. Your objective is to initialize or
 ## Procedure
 
 ### 1. Script Selection & Execution
+
 Detect the operating environment and invoke the corresponding script:
 
 - **Windows Environment**:
@@ -29,20 +32,25 @@ Detect the operating environment and invoke the corresponding script:
   ```
 
 ### 2. Verification Gate
+
 - Confirm the script completed with status `SUCCESS`.
 - Confirm `/.hyperspec/hyperspec.json` exists and contains `"version": "0.3.0"`.
 - Confirm `/.hyperspec/specs-organization.md` exists.
+- Confirm `/.hyperspec/specignore` exists.
 - Confirm templates in `/.hyperspec/templates/` exist.
 
 ## Operational Constraints
+
 - Execution Path: Invoke the script using its path relative to the skill root or with the appropriate working directory.
 - Scope Limitation: Do not create sample specs or touch code during setup; spec authoring is handled by `edit-specs`.
 
 ## Output Schema
+
 <output_contract>
 Upon completing initialization, emit a report:
 
 ### Hyperspec Setup Summary
+
 - **Hyperspec Version**: `0.3.0`
 - **Status**: `[SUCCESS | FAILED]`
-</output_contract>
+  </output_contract>

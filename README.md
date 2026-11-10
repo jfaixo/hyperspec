@@ -27,17 +27,16 @@
   - [3. Assess — `assess-alignment` (optional)](#3-assess--assess-alignment-optional)
 - [🧰 Utility Skills](#-utility-skills)
 
-
 ## ℹ️ What is Hyperspec?
 
 Hyperspec is a declarative, specification-driven framework for **designing products** and harnessing coding agents. It treats the product specification not merely as documentation, but as the single source of truth, and the design plane for the entire product lifecycle.
 
 In a Hyperspec workflow, product design is the primary activity. Code is never edited directly, and agents are never instructed through ad-hoc requests. Instead, the design team or developers refine the product design by updating absolute, declarative specifications. Coding agents then serve as the engine to align the codebase to match this designed state.
 
-
 ## 🌟 Core Pillars
 
 ### 1. Absolute Declarative Specifications
+
 Specs always describe the **exact target state** of the application. They contain no concept of before/after, steps of modification, or historical changes. Product designers and engineers focus entirely on modeling the perfect end-state of the product.
 
 Key differentiators from other systems:
@@ -46,13 +45,15 @@ Key differentiators from other systems:
 - User stories or implementation plans are **not** part of the specs: these implementation details will be handled by the coding agents.
 
 ### 2. Design-Driven Development
+
 Developers and designers never directly modify code or run ad-hoc agent prompts. Any change to the product begins with a design update in the specifications, which automatically propagates down to the codebase.
 
 ### 3. Alignment-Based Workflow
+
 The development cycle follows a strict two-step loop:
+
 1. **Design & Spec Update**: The product's specifications are updated to reflect the newly designed state of the product.
 2. **Codebase Alignment**: A coding agent analyzes the changes in the specs (using tools like `git diff`) and aligns the codebase with the updated design.
-
 
 ## 🚀 Get started
 
@@ -69,7 +70,6 @@ curl -sSL https://github.com/hyperspec-run/hyperspec/releases/latest/download/ag
 ```bash
 curl -sSL https://github.com/hyperspec-run/hyperspec/releases/latest/download/copilot.tar.gz | tar -xz
 ```
-
 
 ## 🛠 How to use
 
@@ -100,7 +100,7 @@ flowchart LR
     Verify -->|Yes| Aligned["→ ALIGNED"]
 ```
 
-### 3. Assess — `assess-alignment` *(optional)*
+### 3. Assess — `assess-alignment` _(optional)_
 
 Run on demand for a drift audit. It runs the full test suites and a **two-way** check (spec ➔ code, code ➔ spec), then reports gaps with a recommended plan — changing no code.
 
@@ -113,13 +113,11 @@ flowchart LR
     Plan -->|None| Done(["Aligned ✔"])
 ```
 
-
 ## 🧰 Utility Skills
 
 Hyperspec also provides utility skills to streamline session management and continuous agent improvement:
 
-| Skill | Description | When to Use |
-| :--- | :--- | :--- |
-| `complete-conversation` | Finalizes a session by staging, committing changes, merging/fast-forwarding branches, and cleaning up worktrees. | When work is approved and you are ready to wrap up the conversation. |
+| Skill                      | Description                                                                                                                             | When to Use                                                                                 |
+| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------ |
+| `complete-conversation`    | Finalizes a session by staging, committing changes, merging/fast-forwarding branches, and cleaning up worktrees.                        | When work is approved and you are ready to wrap up the conversation.                        |
 | `conversation-post-mortem` | Analyzes a completed conversation to uncover agent struggles, identify friction points, and suggest mitigations or instruction updates. | After a session to diagnose agent shortcomings and continuously improve agent instructions. |
-

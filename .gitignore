@@ -1,3 +1,4 @@
 *.zip
 *.tar.gz
 dist/
+node_modules/
