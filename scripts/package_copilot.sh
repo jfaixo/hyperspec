@@ -8,6 +8,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 
 HARNESS_DIR="$PROJECT_ROOT/harness"
+STANDARDS_DIR="$PROJECT_ROOT/standards"
 STAGING_DIR="$PROJECT_ROOT/.copilot_staging"
 COPILOT_DIR="$STAGING_DIR/.github"
 TAR_PATH="$PROJECT_ROOT/copilot.tar.gz"
@@ -49,16 +50,43 @@ if [ -z "$(ls -A "$HARNESS_DIR")" ]; then
   exit 1
 fi
 
+if [ ! -d "$STANDARDS_DIR" ]; then
+  echo "Error: standards directory '$STANDARDS_DIR' does not exist." >&2
+  exit 1
+fi
+
+HAS_STANDARD=false
+for standard_dir in "$STANDARDS_DIR"/*; do
+  if [ -d "$standard_dir" ]; then
+    HAS_STANDARD=true
+    break
+  fi
+done
+if [ "$HAS_STANDARD" = "false" ]; then
+  echo "Error: standards directory '$STANDARDS_DIR' has no standard subdirectories." >&2
+  exit 1
+fi
+
 if [ -d "$STAGING_DIR" ]; then
   echo "Error: staging directory '$STAGING_DIR' already exists. Please remove it first." >&2
   exit 1
 fi
 
-# 2. Create the staging directory and copy harness contents
+# 2. Create the staging directory and copy harness contents and standards
 mkdir -p "$COPILOT_DIR"
 
 if [ -d "$HARNESS_DIR/skills" ]; then
   cp -a "$HARNESS_DIR/skills" "$COPILOT_DIR/"
+fi
+
+if [ -d "$COPILOT_DIR/skills/setup-hyperspec" ]; then
+  SETUP_STANDARDS_DIR="$COPILOT_DIR/skills/setup-hyperspec/assets/standards"
+  mkdir -p "$SETUP_STANDARDS_DIR"
+  for standard_dir in "$STANDARDS_DIR"/*; do
+    if [ -d "$standard_dir" ]; then
+      cp -a "$standard_dir" "$SETUP_STANDARDS_DIR/"
+    fi
+  done
 fi
 
 if [ -d "$HARNESS_DIR/templates" ]; then
