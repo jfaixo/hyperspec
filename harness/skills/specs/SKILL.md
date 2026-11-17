@@ -1,5 +1,5 @@
 ---
-name: edit-specs
+name: specs
 description: Load when creating, modifying, expanding, or refactoring specifications under /specs/, including core architectural specs and skill specs under specs/skills/. Use whenever adding new requirements or updating the specs, even if the user says "add a spec", "update the requirements", or "change the spec". Do not load for direct source code edits or running derivations.
 disable-model-invocation: true
 ---

@@ -35,4 +35,3 @@ glab issue update <issue-id> \
 ## Optional Flags
 
 Can be discovered running `glab issue <command> --help`.
-

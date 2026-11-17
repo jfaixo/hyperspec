@@ -1,6 +1,6 @@
 ---
-name: conversation-post-mortem
-description: Run a post mortem on a completed conversation to identify AI struggles, propose mitigations, and update instructions to improve future conversations.
+name: post-mortem
+description: Run a post mortem on a completed conversation to identify agents struggles, propose mitigations, and update instructions to improve future conversations.
 disable-model-invocation: true
 ---
 
@@ -8,14 +8,14 @@ disable-model-invocation: true
 
 ## Execution Role
 
-Run a post mortem on a completed conversation to identify AI struggles, propose mitigations, and update skills to improve future interactions.
+Run a post mortem on a completed conversation to identify agents struggles, propose mitigations, and update skills to improve future interactions.
 
 ## Procedure
 
 ### 1. Review and Extract Pain Points
 
 - Thoroughly review the conversation history from start to finish.
-- Identify all instances where I struggled (e.g., misusing tools, making incorrect assumptions, failing to follow instructions, or needing user corrections).
+- Identify all instances where agents struggled (e.g., misusing tools, making incorrect assumptions, failing to follow instructions, or needing user corrections).
 - Create a list of these specific pain points.
 
 ### 2. Prioritize
@@ -30,7 +30,6 @@ Run a post mortem on a completed conversation to identify AI struggles, propose 
   - Updating an existing `SKILL.md` or any coding agent related file.
   - Creating a new skill.
   - Adding or amending a linked documentation file in the repository.
-  - Creating a new Knowledge entry (in `.agents/knowledge`).
 
 ### 4. User Validation
 
@@ -40,7 +39,7 @@ Run a post mortem on a completed conversation to identify AI struggles, propose 
 ### 5. Memorize and Execute
 
 - Once the user validates specific mitigation procedures, immediately execute them.
-- Apply the changes exactly as agreed upon (updating skills, documentation, etc.).
+- Apply the changes exactly as agreed upon (updating skills, documentation, etc.), triggering /specs or /align if needed.
 - Provide a brief summary of the applied updates to close the post-mortem session.
 
 ## Operational Constraints

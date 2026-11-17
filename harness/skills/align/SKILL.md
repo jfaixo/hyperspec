@@ -1,5 +1,5 @@
 ---
-name: align-to-specs
+name: align
 description: Orchestrate end-to-end alignment of the codebase to the specifications.
 disable-model-invocation: true
 ---

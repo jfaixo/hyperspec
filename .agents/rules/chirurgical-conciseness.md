@@ -6,7 +6,7 @@ All the contents produced by agents MUST aim at converging to a state where all 
 
 This include:
 
-- do not duplication existing content.
+- do not duplicate existing content.
 - actively remove identified duplications.
 - adopt an imperative, affirmative, straight to the point, tone.
 - use negative formulations only when absolutely necessary

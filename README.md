@@ -22,8 +22,8 @@
 - [✨ Core Pillars](#-core-pillars)
 - [🚀 Get started](#get-started)
 - [🛠 How to use](#how-to-use)
-  - [1. Design — `edit-specs`](#1-design--edit-specs)
-  - [2. Realign — `align-code-to-specs`](#2-realign--align-code-to-specs)
+  - [1. Design — `specs`](#1-design--specs)
+  - [2. Realign — `align`](#2-realign--align)
   - [3. Assess — `assess-alignment` (optional)](#3-assess--assess-alignment-optional)
 - [🧰 Utility Skills](#-utility-skills)
 
@@ -75,7 +75,7 @@ curl -sSL https://github.com/hyperspec-run/hyperspec/releases/latest/download/co
 
 You steer Hyperspec by **evolving the specs, never by prompting for code directly**. Agents help on both sides — authoring the specs with you, then aligning the code. Work happens in three stages, each driven by an entrypoint skill.
 
-### 1. Design — `edit-specs`
+### 1. Design — `specs`
 
 Describe the intent; the agent helps author and refine the spec against the [spec template](.github/templates/spec-template.md). You review until it's right, then sign off to move it from `DRAFT` to `APPROVED`.
 
@@ -87,7 +87,7 @@ flowchart LR
     Review -->|Yes| Approved["→ APPROVED"]
 ```
 
-### 2. Realign — `align-to-specs`
+### 2. Realign — `align`
 
 The agent diffs the approved specs, writes failing tests first, then applies clean code until the build and **all** tests pass — marking each chapter `ALIGNED`.
 
@@ -108,8 +108,8 @@ Run on demand for a drift audit. It runs the full test suites and a **two-way** 
 flowchart LR
     Run(["On demand"]) --> Audit["Two-way audit<br/>+ full test run"]
     Audit --> Plan{"Gaps?"}
-    Plan -->|Spec gaps| ToEdit(["→ edit-specs"])
-    Plan -->|Code gaps| ToAlign(["→ align-to-specs"])
+    Plan -->|Spec gaps| ToEdit(["→ specs"])
+    Plan -->|Code gaps| ToAlign(["→ align"])
     Plan -->|None| Done(["Aligned ✔"])
 ```
 
@@ -117,7 +117,7 @@ flowchart LR
 
 Hyperspec also provides utility skills to streamline session management and continuous agent improvement:
 
-| Skill                      | Description                                                                                                                             | When to Use                                                                                 |
-| :------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------ |
-| `complete-conversation`    | Finalizes a session by staging, committing changes, merging/fast-forwarding branches, and cleaning up worktrees.                        | When work is approved and you are ready to wrap up the conversation.                        |
-| `conversation-post-mortem` | Analyzes a completed conversation to uncover agent struggles, identify friction points, and suggest mitigations or instruction updates. | After a session to diagnose agent shortcomings and continuously improve agent instructions. |
+| Skill                   | Description                                                                                                                             | When to Use                                                                                 |
+| :---------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------ |
+| `complete-conversation` | Finalizes a session by staging, committing changes, merging/fast-forwarding branches, and cleaning up worktrees.                        | When work is approved and you are ready to wrap up the conversation.                        |
+| `post-mortem`           | Analyzes a completed conversation to uncover agent struggles, identify friction points, and suggest mitigations or instruction updates. | After a session to diagnose agent shortcomings and continuously improve agent instructions. |

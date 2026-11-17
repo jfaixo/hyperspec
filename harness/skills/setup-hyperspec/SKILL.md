@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # `setup-hyperspec` Skill
 
-## Execution Role
+## Role & Purpose
 
 Initialize or update the workspace configuration directory `/.hyperspec/` from a standard packaged under `assets/standards/<standard>/`.
 
@@ -14,7 +14,7 @@ Initialize or update the workspace configuration directory `/.hyperspec/` from a
 
 - **Target Directory**: Target strictly `/.hyperspec/` at the workspace root.
 - **Deterministic Offloading**: Execute `scripts/setup.ps1` on Windows or `scripts/setup.sh` on POSIX; invoke from the skill root or adjust paths accordingly.
-- **Scope Limitation**: Leave source code and sample specs untouched; spec authoring belongs to `edit-specs`.
+- **Scope Limitation**: Leave source code and sample specs untouched; spec authoring belongs to `/specs`.
 
 ## Procedure
 

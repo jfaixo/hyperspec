@@ -34,4 +34,5 @@ A concise description of the high-level need, business problem, or opportunity.
 ## Questions & Open Points
 
 - [Any open questions, business choices, or uncertainties to clarify during spec drafting]
+
 </body>
