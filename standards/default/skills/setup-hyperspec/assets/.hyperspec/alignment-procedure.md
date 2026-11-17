@@ -17,13 +17,13 @@ Before proceeding with scoping or tests:
 
 - For each AAC that has been created/updated/removed, update its implementation accordingly, and update traceability.
 
-### 3. Plan Specs Alignment & Dependency Graph
+### 2. Plan Specs Alignment & Dependency Graph
 
 - Build the dependency DAG of all items requiring modifications based on scoped specs and dependencies.
 - Identify the initial **runnable horizon**: items whose dependencies are already satisfied.
 - Populate the `alignment-status` artifact with all items, their dependencies, and the initial runnable horizon.
 
-### 4. Implement items Continuously via Dynamic Horizon
+### 3. Implement items Continuously via Dynamic Horizon
 
 Continuously maintain and execute across the runnable horizon:
 
@@ -34,7 +34,7 @@ Continuously maintain and execute across the runnable horizon:
   - Add newly unlocked items to the active runnable horizon and immediately spawn their implementers.
 - Repeat until all items are completed.
 
-### 5. Verify AAC
+### 4. Verify AAC
 
 - Run all the acceptance criteria tests.
 - If any test fails, diagnose the failure, spawn targeted `implementer` subagents to resolve it, then re-run tests until all pass.
