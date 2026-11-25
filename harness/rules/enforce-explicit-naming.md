@@ -1,5 +1,6 @@
 ---
 trigger: always_on
+tags: opinionated
 ---
 
 ## Enforce Explicit Identifier Naming (No Abbreviation)

@@ -1,0 +1,15 @@
+{
+  "name": "hyperspec",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "fmt": "oxfmt"
+  },
+  "devDependencies": {
+    "oxfmt": "^0.78.0"
+  }
+}

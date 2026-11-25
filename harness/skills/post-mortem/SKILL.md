@@ -1,25 +1,21 @@
 ---
-name: conversation-post-mortem
-description: Run a post mortem on a completed conversation to identify AI struggles, propose mitigations, and update instructions to improve future conversations.
+name: post-mortem
+description: Run a post mortem on a completed conversation to identify agents struggles, propose mitigations, and update instructions to improve future conversations.
+disable-model-invocation: true
 ---
 
 # Conversation Post Mortem Skill
 
-I will run a post mortem on a completed conversation to identify AI struggles, propose mitigations, and update skills to improve future interactions.
+## Execution Role
 
-## Guardrails
+Run a post mortem on a completed conversation to identify agents struggles, propose mitigations, and update skills to improve future interactions.
 
-- Thoroughly review the entire conversation log before acting
-- Provide concrete, actionable mitigation proposals
-- **DO NOT** update any skills, or files without explicit user validation
-- Ensure any updates align with existing architectural principles and repository guidelines
-
-## Steps
+## Procedure
 
 ### 1. Review and Extract Pain Points
 
 - Thoroughly review the conversation history from start to finish.
-- Identify all instances where I struggled (e.g., misusing tools, making incorrect assumptions, failing to follow instructions, or needing user corrections).
+- Identify all instances where agents struggled (e.g., misusing tools, making incorrect assumptions, failing to follow instructions, or needing user corrections).
 - Create a list of these specific pain points.
 
 ### 2. Prioritize
@@ -34,7 +30,6 @@ I will run a post mortem on a completed conversation to identify AI struggles, p
   - Updating an existing `SKILL.md` or any coding agent related file.
   - Creating a new skill.
   - Adding or amending a linked documentation file in the repository.
-  - Creating a new Knowledge entry (in `.agents/knowledge`).
 
 ### 4. User Validation
 
@@ -44,11 +39,28 @@ I will run a post mortem on a completed conversation to identify AI struggles, p
 ### 5. Memorize and Execute
 
 - Once the user validates specific mitigation procedures, immediately execute them.
-- Apply the changes exactly as agreed upon (updating skills, documentation, etc.).
+- Apply the changes exactly as agreed upon (updating skills, documentation, etc.), triggering /specs or /align if needed.
 - Provide a brief summary of the applied updates to close the post-mortem session.
 
-## Principles
+## Operational Constraints
 
+- Thoroughly review the entire conversation log before acting
+- Provide concrete, actionable mitigation proposals
+- **DO NOT** update any skills, or files without explicit user validation
+- Ensure any updates align with existing architectural principles and repository guidelines
 - Be concise but complete when extracting pain points
 - Make mitigations durable (e.g., updating files) rather than temporary
 - Always prioritize user consent before modifying agent instructions
+
+## Output Schema
+
+<output_contract>
+Upon completing, emit a report:
+
+### Post Mortem Summary
+
+- **Pain point #1**: [MITIGATED|NOT-MITIGATED]
+  - `Mitigation: [Mitigation type (skill, documentation, etc.)]`
+  - `Summary: [Summary of the pain point]`
+  - `Resolution: [What was done to mitigate it]`
+    </output_contract>

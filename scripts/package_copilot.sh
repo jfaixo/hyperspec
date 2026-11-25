@@ -54,15 +54,15 @@ if [ -d "$STAGING_DIR" ]; then
   exit 1
 fi
 
-# 2. Create the staging directory and copy harness contents
+# 2. Create the staging directory and copy harness contents (dereferencing symlinks)
 mkdir -p "$COPILOT_DIR"
 
 if [ -d "$HARNESS_DIR/skills" ]; then
-  cp -a "$HARNESS_DIR/skills" "$COPILOT_DIR/"
+  cp -aL "$HARNESS_DIR/skills" "$COPILOT_DIR/"
 fi
 
 if [ -d "$HARNESS_DIR/templates" ]; then
-  cp -a "$HARNESS_DIR/templates" "$COPILOT_DIR/"
+  cp -aL "$HARNESS_DIR/templates" "$COPILOT_DIR/"
 fi
 
 # 3. Concatenate rules into AGENTS.md
