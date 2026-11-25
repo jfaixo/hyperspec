@@ -8,8 +8,6 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 
 HARNESS_DIR="$PROJECT_ROOT/harness"
-STANDARDS_DIR="$PROJECT_ROOT/standards"
-ISSUE_TRACKERS_DIR="$PROJECT_ROOT/issue-trackers"
 DIST_DIR="$PROJECT_ROOT/dist"
 AGENTS_DIR="$PROJECT_ROOT/dist/.agents"
 TAR_PATH="$PROJECT_ROOT/dist/agents.tar.gz"
@@ -51,54 +49,13 @@ if [ -z "$(ls -A "$HARNESS_DIR")" ]; then
   exit 1
 fi
 
-if [ ! -d "$STANDARDS_DIR" ]; then
-  echo "Error: standards directory '$STANDARDS_DIR' does not exist." >&2
-  exit 1
-fi
-
-HAS_STANDARD=false
-for standard_dir in "$STANDARDS_DIR"/*; do
-  if [ -d "$standard_dir" ]; then
-    HAS_STANDARD=true
-    break
-  fi
-done
-if [ "$HAS_STANDARD" = "false" ]; then
-  echo "Error: standards directory '$STANDARDS_DIR' has no standard subdirectories." >&2
-  exit 1
-fi
-
-if [ ! -d "$ISSUE_TRACKERS_DIR" ]; then
-  echo "Error: issue-trackers directory '$ISSUE_TRACKERS_DIR' does not exist." >&2
-  exit 1
-fi
-
-if [ -z "$(ls -A "$ISSUE_TRACKERS_DIR")" ]; then
-  echo "Error: issue-trackers directory '$ISSUE_TRACKERS_DIR' is empty." >&2
-  exit 1
-fi
-
 if [ -d "$AGENTS_DIR" ]; then
   rm -rf "$AGENTS_DIR"
 fi
 
-# 2. Create the .agents/ folder and copy harness contents and standards
+# 2. Create the .agents/ folder and copy harness contents (dereferencing symlinks)
 mkdir -p "$AGENTS_DIR"
-cp -a "$HARNESS_DIR"/. "$AGENTS_DIR"/
-
-if [ -d "$AGENTS_DIR/skills/setup-hyperspec" ]; then
-  SETUP_STANDARDS_DIR="$AGENTS_DIR/skills/setup-hyperspec/assets/standards"
-  mkdir -p "$SETUP_STANDARDS_DIR"
-  for standard_dir in "$STANDARDS_DIR"/*; do
-    if [ -d "$standard_dir" ]; then
-      cp -a "$standard_dir" "$SETUP_STANDARDS_DIR/"
-    fi
-  done
-
-  SETUP_ISSUE_TRACKERS_DIR="$AGENTS_DIR/skills/setup-hyperspec/assets/issue-trackers"
-  mkdir -p "$SETUP_ISSUE_TRACKERS_DIR"
-  cp -a "$ISSUE_TRACKERS_DIR"/. "$SETUP_ISSUE_TRACKERS_DIR"/
-fi
+cp -aL "$HARNESS_DIR"/. "$AGENTS_DIR"/
 
 # 3. Tar/gzip the .agents folder (run from project root to keep relative paths correct)
 cd "$DIST_DIR"

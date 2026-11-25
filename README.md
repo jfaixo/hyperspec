@@ -41,7 +41,9 @@ Hyperspec separates product evolution into **three planes**, keeping declarative
 
 ## Get Started
 
-Extract the harness archive at your repository root, then run `/setup-hyperspec` to initialize `/.hyperspec/` and configure your issue tracker:
+### 1. Install the skills
+
+Extract the harness archive at your repository root:
 
 **Antigravity**
 
@@ -54,6 +56,10 @@ curl -sSL https://github.com/hyperspec-run/hyperspec/releases/latest/download/ag
 ```bash
 curl -sSL https://github.com/hyperspec-run/hyperspec/releases/latest/download/copilot.tar.gz | tar -xz
 ```
+
+### 2. Run `/setup-hyperspec`
+
+Invoke `/setup-hyperspec` in your agent session to initialize `/.hyperspec/`, configure your issue tracker, and run preflight checks.
 
 ## Other Skills
 
