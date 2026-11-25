@@ -8,9 +8,9 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 
 HARNESS_DIR="$PROJECT_ROOT/harness"
-STAGING_DIR="$PROJECT_ROOT/.copilot_staging"
-COPILOT_DIR="$STAGING_DIR/.github"
-TAR_PATH="$PROJECT_ROOT/copilot.tar.gz"
+DIST_DIR="$PROJECT_ROOT/dist"
+COPILOT_DIR="$PROJECT_ROOT/dist/.github"
+TAR_PATH="$PROJECT_ROOT/dist/copilot.tar.gz"
 
 SUCCESS=false
 
@@ -26,9 +26,9 @@ cleanup() {
       rm -f "$TAR_PATH" >/dev/null 2>&1
     fi
 
-    # Remove the temporary staging folder if created
-    if [ -d "$STAGING_DIR" ]; then
-      rm -rf "$STAGING_DIR" >/dev/null 2>&1
+    # Remove the temporary .github/ folder if created
+    if [ -d "$COPILOT_DIR" ]; then
+      rm -rf "$COPILOT_DIR" >/dev/null 2>&1
     fi
 
     exit 1
@@ -49,12 +49,11 @@ if [ -z "$(ls -A "$HARNESS_DIR")" ]; then
   exit 1
 fi
 
-if [ -d "$STAGING_DIR" ]; then
-  echo "Error: staging directory '$STAGING_DIR' already exists. Please remove it first." >&2
-  exit 1
+if [ -d "$COPILOT_DIR" ]; then
+  rm -rf "$COPILOT_DIR"
 fi
 
-# 2. Create the staging directory and copy harness contents (dereferencing symlinks)
+# 2. Create the .github/ folder and copy harness contents (dereferencing symlinks)
 mkdir -p "$COPILOT_DIR"
 
 if [ -d "$HARNESS_DIR/skills" ]; then
@@ -91,14 +90,11 @@ if [ -d "$HARNESS_DIR/rules" ]; then
   done
 fi
 
-# 4. Tar/gzip the .github folder (run from staging directory to keep relative paths correct)
-cd "$STAGING_DIR"
-tar -czf "$TAR_PATH" .github
+# 4. Tar/gzip the .github folder (run from dist directory to keep relative paths correct)
+cd "$DIST_DIR"
+tar -czf "$TAR_PATH" ".github"
 
-# 5. Clean the temporary folders, only keeping the tar.gz artifact
-rm -rf "$STAGING_DIR"
-
-# 6. Output the full path of the tar.gz artifact to stdout
+# 5. Output the full path of the tar.gz artifact to stdout
 echo "$TAR_PATH"
 
 # Mark script as successful
