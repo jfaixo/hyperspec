@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 492" width="100%" height="100%">
+  <defs>
+    <pattern id="dotGrid" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle cx="8" cy="8" r="0.9" fill="#c9c9c3" />
+    </pattern>
+    <radialGradient id="dotMaskGrad" cx="50%" cy="50%" r="60%">
+      <stop offset="35%" stop-color="#ffffff" stop-opacity="1" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+    <mask id="dotMask">
+      <rect x="0" y="0" width="1020" height="492" fill="url(#dotMaskGrad)" />
+    </mask>
+    <linearGradient id="comet12" gradientUnits="userSpaceOnUse" x1="304" y1="0" x2="362" y2="0">
+      <stop offset="0%" stop-color="#2456e8" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#2456e8" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="comet23" gradientUnits="userSpaceOnUse" x1="646" y1="0" x2="706" y2="0">
+      <stop offset="0%" stop-color="#2456e8" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#2456e8" stop-opacity="1" />
+    </linearGradient>
+    <filter id="cardShadow" x="-6%" y="-6%" width="112%" height="118%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#000000" flood-opacity="0.06" />
+    </filter>
+    <marker id="arrowAccent" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#2456e8" />
+    </marker>
+    <marker id="arrowMuted" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#a8a8a1" />
+    </marker>
+    <clipPath id="clip1"><rect x="24" y="82" width="276" height="332" rx="10" /></clipPath>
+    <clipPath id="clip2"><rect x="366" y="82" width="276" height="332" rx="10" /></clipPath>
+    <clipPath id="clip3"><rect x="710" y="82" width="276" height="332" rx="10" /></clipPath>
+  </defs>
+
+  <!-- Studio Canvas + Radial-Masked Dot Grid -->
+  <rect x="1.5" y="1.5" width="1017" height="489" rx="14" fill="#f3f3f1" stroke="#e2e2dd" stroke-width="1.25" />
+  <rect x="2" y="2" width="1016" height="488" rx="14" fill="url(#dotGrid)" mask="url(#dotMask)" />
+
+  <!-- Decoupled vs Coupled Plane Grouping -->
+  <text x="162" y="30" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#686863">Decoupled · Out of sync</text>
+  <line x1="333" y1="20" x2="333" y2="134" stroke="#e2e2dd" stroke-width="1.25" stroke-dasharray="3 4" />
+  <line x1="333" y1="176" x2="333" y2="472" stroke="#e2e2dd" stroke-width="1.25" stroke-dasharray="3 4" />
+
+  <rect x="348" y="22" width="656" height="450" rx="12" fill="#ebeae6" stroke="#d5d4ce" stroke-width="1.25" />
+  <rect x="567" y="11" width="218" height="22" rx="11" fill="#eef2fd" stroke="#b9caf8" stroke-width="1" />
+  <text x="676" y="26" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#1b44be">Coupled · Continuously synced</text>
+
+  <!-- Step Timeline Rail -->
+  <line x1="146" y1="58" x2="366" y2="58" stroke="#d6d6d0" stroke-width="1.25" />
+  <line x1="498" y1="58" x2="710" y2="58" stroke="#d6d6d0" stroke-width="1.25" />
+  <circle cx="42" cy="58" r="11" fill="#ffffff" stroke="#dcdcd7" stroke-width="1.25" /><text x="42" y="62" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="600" fill="#0f0f0e">1</text><text x="60" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#0f0f0e">Draft intent</text>
+  <circle cx="384" cy="58" r="11" fill="#ffffff" stroke="#dcdcd7" stroke-width="1.25" /><text x="384" y="62" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="600" fill="#0f0f0e">2</text><text x="402" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#0f0f0e">Update specs</text>
+  <circle cx="728" cy="58" r="11" fill="#ffffff" stroke="#dcdcd7" stroke-width="1.25" /><text x="728" y="62" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="600" fill="#0f0f0e">3</text><text x="746" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#0f0f0e">Sync artifacts</text>
+
+  <!-- STEP 1 CARD: Intent Plane (/intent) -->
+  <rect x="24" y="82" width="276" height="332" rx="10" fill="#ffffff" stroke="#b8b8b0" stroke-width="1.25" stroke-dasharray="5 4" filter="url(#cardShadow)" />
+  <g clip-path="url(#clip1)">
+    <rect x="42" y="98" width="72" height="24" rx="6" fill="#0f0f0e" />
+    <text x="78" y="114" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12" font-weight="600" fill="#f3f3f1">/intent</text>
+    <text x="124" y="114" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#0f0f0e">Intent Plane</text>
+    <line x1="24" y1="136" x2="300" y2="136" stroke="#ecece8" stroke-width="1" />
+
+    <!-- Command Bar -->
+    <rect x="42" y="150" width="240" height="28" rx="6" fill="#f6f6f3" stroke="#e4e4de" stroke-width="1" />
+    <text x="52" y="168" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" fill="#2c2c29"><tspan fill="#1b44be" font-weight="600">/intent</tspan> Add rate limiting</text>
+
+    <!-- Plane Content -->
+    <text x="42" y="202" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#0f0f0e">Desired changes</text>
+    <text x="42" y="224" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#686863">• Tracked in issue tracker (<tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="600" fill="#2c2c29">#42</tspan>)</text>
+    <text x="42" y="244" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#686863">• Independent of live product state</text>
+    <text x="42" y="264" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#686863">• Captures why &amp; scope</text>
+
+    <!-- User Iteration Footer -->
+    <rect x="24" y="294" width="276" height="120" fill="#f4f7fe" />
+    <line x1="24" y1="294" x2="300" y2="294" stroke="#c7d6fa" stroke-width="1" />
+    <circle cx="48" cy="313.5" r="2.3" fill="none" stroke="#1b44be" stroke-width="1.4" /><path d="M43.8 320.5 C43.8 317.8 45.8 316.8 48 316.8 C50.2 316.8 52.2 317.8 52.2 320.5" fill="none" stroke="#1b44be" stroke-width="1.4" stroke-linecap="round" />
+    <text x="62" y="320" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#1b44be">Iterate until satisfied</text>
+    <text x="42" y="344" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#2c2c29">Keep refining the intent</text>
+    <text x="42" y="362" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#2c2c29">until scope and goals are</text>
+    <text x="42" y="380" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#2c2c29">clear.</text>
+  </g>
+  <rect x="24" y="82" width="276" height="332" rx="10" fill="none" stroke="#b8b8b0" stroke-width="1.25" stroke-dasharray="5 4" />
+
+  <!-- Card 1 Self-Iteration Arc -->
+  <path d="M 196 414 L 196 442 Q 196 448 190 448 L 134 448 Q 128 448 128 442 L 128 421" fill="none" stroke="#a8a8a1" stroke-width="1.35" stroke-dasharray="4 3" marker-end="url(#arrowMuted)" />
+  <circle cx="196" cy="414" r="3.2" fill="#ffffff" stroke="#a8a8a1" stroke-width="1.4" />
+  <rect x="104" y="437" width="116" height="22" rx="11" fill="#f3f3f1" stroke="#dcdcd7" stroke-width="1" />
+  <text x="162" y="452" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#686863">Iterate intent</text>
+
+  <!-- Connector 1 -> 2 -->
+  <line x1="304" y1="164" x2="360" y2="164" stroke="url(#comet12)" stroke-width="1.85" marker-end="url(#arrowAccent)" />
+  <circle cx="300" cy="164" r="3.2" fill="#ffffff" stroke="#2456e8" stroke-width="1.4" />
+  <text x="332" y="151" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="600" fill="#1b44be">ref #42</text>
+
+  <!-- STEP 2 CARD: Design Plane (/specs) -->
+  <rect x="366" y="82" width="276" height="332" rx="10" fill="#ffffff" stroke="#dcdcd7" stroke-width="1.25" filter="url(#cardShadow)" />
+  <g clip-path="url(#clip2)">
+    <rect x="384" y="98" width="66" height="24" rx="6" fill="#0f0f0e" />
+    <text x="417" y="114" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12" font-weight="600" fill="#f3f3f1">/specs</text>
+    <text x="460" y="114" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#0f0f0e">Design Plane</text>
+    <line x1="366" y1="136" x2="642" y2="136" stroke="#ecece8" stroke-width="1" />
+
+    <!-- Command Bar -->
+    <rect x="384" y="150" width="240" height="28" rx="6" fill="#f6f6f3" stroke="#e4e4de" stroke-width="1" />
+    <text x="394" y="168" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" fill="#2c2c29"><tspan fill="#1b44be" font-weight="600">/specs</tspan> implement #42</text>
+
+    <!-- Plane Content -->
+    <text x="384" y="202" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#0f0f0e">Absolute target state</text>
+    <text x="384" y="224" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#686863">• Declarative <tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" fill="#2c2c29">specs/</tspan> (source of truth)</text>
+    <text x="384" y="244" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#686863">• Incorporates <tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="600" fill="#2c2c29">#42</tspan> into design</text>
+    <text x="384" y="264" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#686863">• Steers product design</text>
+
+    <!-- User Iteration Footer -->
+    <rect x="366" y="294" width="276" height="120" fill="#f4f7fe" />
+    <line x1="366" y1="294" x2="642" y2="294" stroke="#c7d6fa" stroke-width="1" />
+    <circle cx="390" cy="313.5" r="2.3" fill="none" stroke="#1b44be" stroke-width="1.4" /><path d="M385.8 320.5 C385.8 317.8 387.8 316.8 390 316.8 C392.2 316.8 394.2 317.8 394.2 320.5" fill="none" stroke="#1b44be" stroke-width="1.4" stroke-linecap="round" />
+    <text x="404" y="320" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#1b44be">Iterate until satisfied</text>
+    <text x="384" y="344" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#2c2c29">Review &amp; steer <tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5">specs/</tspan></text>
+    <text x="384" y="362" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#2c2c29">until the target design</text>
+    <text x="384" y="380" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#2c2c29">is approved.</text>
+  </g>
+  <rect x="366" y="82" width="276" height="332" rx="10" fill="none" stroke="#dcdcd7" stroke-width="1.25" />
+
+  <!-- Card 2 Self-Iteration Arc -->
+  <path d="M 538 414 L 538 442 Q 538 448 532 448 L 476 448 Q 470 448 470 442 L 470 421" fill="none" stroke="#2456e8" stroke-width="1.35" stroke-dasharray="4 3" marker-end="url(#arrowAccent)" />
+  <circle cx="538" cy="414" r="3.2" fill="#ffffff" stroke="#2456e8" stroke-width="1.4" />
+  <rect x="446" y="437" width="116" height="22" rx="11" fill="#ebeae6" stroke="#b9caf8" stroke-width="1" />
+  <text x="504" y="452" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#1b44be">Iterate specs</text>
+
+  <!-- Connector 2 -> 3 (Forward) -->
+  <line x1="646" y1="164" x2="704" y2="164" stroke="url(#comet23)" stroke-width="1.85" marker-end="url(#arrowAccent)" />
+  <circle cx="642" cy="164" r="3.2" fill="#ffffff" stroke="#2456e8" stroke-width="1.4" />
+  <text x="676" y="151" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="600" fill="#1b44be">specs/</text>
+
+  <!-- Connector 3 -> 2 (Return if spec updates required) -->
+  <line x1="706" y1="354" x2="648" y2="354" stroke="#a8a8a1" stroke-width="1.4" stroke-dasharray="4 3" marker-end="url(#arrowMuted)" />
+  <circle cx="710" cy="354" r="3.2" fill="#ffffff" stroke="#a8a8a1" stroke-width="1.4" />
+  <text x="676" y="341" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#686863">Need spec</text>
+  <text x="676" y="371" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#686863">updates?</text>
+
+  <!-- STEP 3 CARD: Artifacts Plane (/align) -->
+  <rect x="710" y="82" width="276" height="332" rx="10" fill="#ffffff" stroke="#dcdcd7" stroke-width="1.25" filter="url(#cardShadow)" />
+  <g clip-path="url(#clip3)">
+    <rect x="728" y="98" width="66" height="24" rx="6" fill="#0f0f0e" />
+    <text x="761" y="114" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12" font-weight="600" fill="#f3f3f1">/align</text>
+    <text x="804" y="114" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#0f0f0e">Artifacts Plane</text>
+    <circle cx="964" cy="110" r="7" fill="#e9f6f1" /><path d="M960.8 110.2 l2.1 2.1 l4.3 -4.5" fill="none" stroke="#16825d" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+    <line x1="710" y1="136" x2="986" y2="136" stroke="#ecece8" stroke-width="1" />
+
+    <!-- Command Bar -->
+    <rect x="728" y="150" width="240" height="28" rx="6" fill="#f6f6f3" stroke="#e4e4de" stroke-width="1" />
+    <text x="738" y="168" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" fill="#1b44be" font-weight="600">/align</text>
+
+    <!-- Plane Content -->
+    <text x="728" y="202" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#0f0f0e">Effective product state</text>
+    <text x="728" y="224" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#686863">• Source code, tests, docs, etc</text>
+    <text x="728" y="244" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#686863">• Reconciled continuously</text>
+    <text x="738" y="261" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#686863">to match <tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" fill="#2c2c29">specs/</tspan></text>
+
+    <!-- User Iteration Footer -->
+    <rect x="710" y="294" width="276" height="120" fill="#f4f7fe" />
+    <line x1="710" y1="294" x2="986" y2="294" stroke="#c7d6fa" stroke-width="1" />
+    <circle cx="734" cy="313.5" r="2.3" fill="none" stroke="#1b44be" stroke-width="1.4" /><path d="M729.8 320.5 C729.8 317.8 731.8 316.8 734 316.8 C736.2 316.8 738.2 317.8 738.2 320.5" fill="none" stroke="#1b44be" stroke-width="1.4" stroke-linecap="round" />
+    <text x="748" y="320" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#1b44be">Tune artifacts or update specs</text>
+    <text x="728" y="344" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#2c2c29">Iterate with <tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5">/align</tspan> to tune</text>
+    <text x="728" y="362" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#2c2c29">results, or return to <tspan font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5">/specs</tspan></text>
+    <text x="728" y="380" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#2c2c29">if specs need updates.</text>
+  </g>
+  <rect x="710" y="82" width="276" height="332" rx="10" fill="none" stroke="#dcdcd7" stroke-width="1.25" />
+
+  <!-- Card 3 Self-Iteration Arc -->
+  <path d="M 882 414 L 882 442 Q 882 448 876 448 L 820 448 Q 814 448 814 442 L 814 421" fill="none" stroke="#2456e8" stroke-width="1.35" stroke-dasharray="4 3" marker-end="url(#arrowAccent)" />
+  <circle cx="882" cy="414" r="3.2" fill="#ffffff" stroke="#2456e8" stroke-width="1.4" />
+  <rect x="790" y="437" width="116" height="22" rx="11" fill="#ebeae6" stroke="#b9caf8" stroke-width="1" />
+  <text x="848" y="452" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" fill="#1b44be">Tune results</text>
+</svg>

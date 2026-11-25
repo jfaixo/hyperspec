@@ -5,119 +5,92 @@
     <img alt="Hyperspec" src="docs/assets/logo-light.svg" width="100" />
   </picture>
   <h1>HYPERSPEC</h1>
-</div>
 <div align="center">
   <p>Specs as an absolute, declarative design plane.</p>
   <p>If it's not in the spec, it doesn't exist.</p>
 </div>
+</div>
 <p align="center">
-    <a href="https://github.com/hyperspec-run/hyperspec/releases/latest"><img alt="GitHub Release" src="https://img.shields.io/github/v/release/hyperspec-run/hyperspec"></a>
-    <a href="https://github.com/hyperspec-run/hyperspec/stargazers"><img src="https://img.shields.io/github/stars/hyperspec-run/hyperspec?style=social" alt="GitHub stars"/></a>
-    <a href="https://github.com/hyperspec-run/hyperspec/blob/main/LICENSE.md"><img src="https://img.shields.io/github/license/hyperspec-run/hyperspec" alt="License"/></a>
+  <a href="https://github.com/hyperspec-run/hyperspec/releases/latest"><img alt="GitHub Release" src="https://img.shields.io/github/v/release/hyperspec-run/hyperspec"></a>
+  <a href="https://github.com/hyperspec-run/hyperspec/stargazers"><img src="https://img.shields.io/github/stars/hyperspec-run/hyperspec?style=social" alt="GitHub stars"/></a>
+  <a href="https://github.com/hyperspec-run/hyperspec/blob/main/LICENSE.md"><img src="https://img.shields.io/github/license/hyperspec-run/hyperspec" alt="License"/></a>
 </p>
 
-## Table of Contents
+## Summary
 
-- [ℹ️ What is Hyperspec?](#what-is-hyperspec)
-- [✨ Core Pillars](#-core-pillars)
-- [🚀 Get started](#get-started)
-- [🛠 How to use](#how-to-use)
-  - [1. Design — `specs`](#1-design--specs)
-  - [2. Realign — `align`](#2-realign--align)
-  - [3. Assess — `assess-alignment` (optional)](#3-assess--assess-alignment-optional)
-- [🧰 Utility Skills](#-utility-skills)
+- [Hyperspec in 5 Minutes](#hyperspec-in-5-minutes)
+- [Get Started](#get-started)
+- [Other Skills](#other-skills)
+- [Customization](#customization)
+- [FAQ](#faq)
 
-## ℹ️ What is Hyperspec?
+## Hyperspec in 5 Minutes
 
-Hyperspec is a declarative, specification-driven framework for **designing products** and harnessing coding agents. It treats the product specification not merely as documentation, but as the single source of truth, and the design plane for the entire product lifecycle.
+Hyperspec separates product evolution into **three planes**, keeping declarative specifications and codebase artifacts continuously synchronized.
 
-In a Hyperspec workflow, product design is the primary activity. Code is never edited directly, and agents are never instructed through ad-hoc requests. Instead, the design team or developers refine the product design by updating absolute, declarative specifications. Coding agents then serve as the engine to align the codebase to match this designed state.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/hyperspec-in-5-minutes-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="docs/assets/hyperspec-in-5-minutes-light.svg">
+  <img alt="Hyperspec in 5 minutes across three planes: 1. Intent Plane (/intent) is decoupled and out of sync with the live product state, capturing desired changes (#42) in the issue tracker while you iterate until satisfied. 2. Design Plane (/specs) and Artifacts Plane (/align) are coupled and continuously synced: invoke /specs referencing #42 to update declarative specs/ (the absolute target state and single source of truth) and iterate until satisfied. 3. Invoke /align to reconcile source code, tests, and docs with specs/, iterating with /align to tune artifacts or returning to /specs to update specs." src="docs/assets/hyperspec-in-5-minutes-light.svg" width="100%" />
+</picture>
 
-## 🌟 Core Pillars
+- **Core loop (`specs/` ↔ artifacts)**: Specs and artifacts stay in sync and are versioned jointly in Git.
+- **Design plane (`/specs`)**: Specs express the target state declaratively; steer them with `/specs`.
+- **Artifacts plane (`/align`)**: Agents align artifacts to specs as closely as possible with `/align`.
+- **Modification intents (`/intent`)**: Upstream and decoupled from the repository, allowing you to refine ideas with `/intent` before introducing them into specs.
 
-### 1. Absolute Declarative Specifications
+## Get Started
 
-Specs always describe the **exact target state** of the application. They contain no concept of before/after, steps of modification, or historical changes. Product designers and engineers focus entirely on modeling the perfect end-state of the product.
+Extract the harness archive at your repository root, then run `/setup-hyperspec` to initialize `/.hyperspec/` and configure your issue tracker:
 
-Key differentiators from other systems:
-
-- History is maintained **solely by version control** (e.g., Git history).
-- User stories or implementation plans are **not** part of the specs: these implementation details will be handled by the coding agents.
-
-### 2. Design-Driven Development
-
-Developers and designers never directly modify code or run ad-hoc agent prompts. Any change to the product begins with a design update in the specifications, which automatically propagates down to the codebase.
-
-### 3. Alignment-Based Workflow
-
-The development cycle follows a strict two-step loop:
-
-1. **Design & Spec Update**: The product's specifications are updated to reflect the newly designed state of the product.
-2. **Codebase Alignment**: A coding agent analyzes the changes in the specs (using tools like `git diff`) and aligns the codebase with the updated design.
-
-## 🚀 Get started
-
-To install the agent instructions and skills in your workspace, run the following command from your project root:
-
-### Antigravity
+**Antigravity**
 
 ```bash
 curl -sSL https://github.com/hyperspec-run/hyperspec/releases/latest/download/agents.tar.gz | tar -xz
 ```
 
-### GitHub Copilot
+**GitHub Copilot**
 
 ```bash
 curl -sSL https://github.com/hyperspec-run/hyperspec/releases/latest/download/copilot.tar.gz | tar -xz
 ```
 
-## 🛠 How to use
+## Other Skills
 
-You steer Hyperspec by **evolving the specs, never by prompting for code directly**. Agents help on both sides — authoring the specs with you, then aligning the code. Work happens in three stages, each driven by an entrypoint skill.
+| Skill               | Purpose                                                                                           |
+| :------------------ | :------------------------------------------------------------------------------------------------ |
+| `/setup-hyperspec`  | Initialize `/.hyperspec/` from a standard, configure the issue tracker, and run preflight checks. |
+| `/assess-alignment` | Run a read-only, two-way drift audit (`Spec ➔ Code` and `Code ➔ Spec`) and full test suites.      |
+| `/index-content`    | Refresh existing `directory_map.md` navigation trees across the repository.                       |
+| `/post-mortem`      | Analyze a completed conversation to extract friction points and apply durable skill/rule updates. |
 
-### 1. Design — `specs`
+## Customization
 
-Describe the intent; the agent helps author and refine the spec against the [spec template](.github/templates/spec-template.md). You review until it's right, then sign off to move it from `DRAFT` to `APPROVED`.
+`/setup-hyperspec` installs your repository's Hyperspec configuration under `/.hyperspec/`. Edit these files directly to tailor Hyperspec to your stack and workflow:
 
-```mermaid
-flowchart LR
-    Intent(["Your intent"]) --> Draft["Agent drafts spec<br/>→ DRAFT"]
-    Draft --> Review{"You<br/>approve?"}
-    Review -->|No, refine| Draft
-    Review -->|Yes| Approved["→ APPROVED"]
-```
+| Area                         | File(s)                                                                                                 | Purpose                                                                                            |
+| :--------------------------- | :------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------- |
+| **Intent templates**         | `.hyperspec/templates/intent-issue-template.md`                                                         | Standardize issues created by `/intent`.                                                           |
+| **Issue tracker**            | `.hyperspec/issue-tracker-manual.md`, `.hyperspec/hyperspec.json`                                       | Configure how skills interact with your issue tracker.                                             |
+| **Specs layout & ignored**   | `.hyperspec/specs-organization.md`, `.hyperspec/specignore`                                             | Define `specs/` structure and exclude paths from spec deltas.                                      |
+| **Spec & audit templates**   | `.hyperspec/templates/spec-template.md`, `.hyperspec/templates/alignment-assessment-template.{md,json}` | Standardize specification authoring in `/specs` and drift reports in `/assess-alignment`.          |
+| **Alignment procedure**      | `.hyperspec/alignment-procedure.md`                                                                     | Define the global alignment process orchestrated by `/align` (typically delegating to `/implement` subagents). |
+| **Implementation procedure** | `.hyperspec/implementation-procedure.md`                                                                | Define how each subagent executing `/implement` aligns assigned artifacts.                                     |
+| **Agent rules**              | `.agents/rules/` (Antigravity) or `.github/AGENTS.md` (Copilot)                                         | Enforce workspace-wide agent constraints and conventions.                                          |
 
-### 2. Realign — `align`
+## FAQ
 
-The agent diffs the approved specs, writes failing tests first, then applies clean code until the build and **all** tests pass — marking each chapter `ALIGNED`.
+**Why decouple `/intent` from `specs/`?**  
+Intents capture _why_ a change is needed and tentative scope without polluting the declarative product state. `specs/` remains a clean, conflict-free model of what the product is.
 
-```mermaid
-flowchart LR
-    Approved(["APPROVED spec"]) --> Tests["Write failing tests"]
-    Tests --> Code["Apply code edits"]
-    Code --> Verify{"Build + tests<br/>pass?"}
-    Verify -->|No, refine| Code
-    Verify -->|Yes| Aligned["→ ALIGNED"]
-```
+**Can I skip `/intent` and start with `/specs`?**  
+Yes. Use `/intent` for ideas that need async tracking or refinement; invoke `/specs` directly when ready to update the product design.
 
-### 3. Assess — `assess-alignment` _(optional)_
+**Why forbid history or migration steps in `specs/`?**  
+Git already stores history. Declarative specs let `/align` compute exact deltas against the last `ALIGNED` commit with zero ambiguity.
 
-Run on demand for a drift audit. It runs the full test suites and a **two-way** check (spec ➔ code, code ➔ spec), then reports gaps with a recommended plan — changing no code.
+**How do I detect drift between specs and code?**  
+Run `/assess-alignment` for a read-only two-way audit (`Spec ➔ Code` and `Code ➔ Spec`) and full test verification, then reconcile via `/specs` or `/align`.
 
-```mermaid
-flowchart LR
-    Run(["On demand"]) --> Audit["Two-way audit<br/>+ full test run"]
-    Audit --> Plan{"Gaps?"}
-    Plan -->|Spec gaps| ToEdit(["→ specs"])
-    Plan -->|Code gaps| ToAlign(["→ align"])
-    Plan -->|None| Done(["Aligned ✔"])
-```
-
-## 🧰 Utility Skills
-
-Hyperspec also provides utility skills to streamline session management and continuous agent improvement:
-
-| Skill                   | Description                                                                                                                             | When to Use                                                                                 |
-| :---------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------ |
-| `complete-conversation` | Finalizes a session by staging, committing changes, merging/fast-forwarding branches, and cleaning up worktrees.                        | When work is approved and you are ready to wrap up the conversation.                        |
-| `post-mortem`           | Analyzes a completed conversation to uncover agent struggles, identify friction points, and suggest mitigations or instruction updates. | After a session to diagnose agent shortcomings and continuously improve agent instructions. |
+**How do I optimize `/align` for my codebase?**  
+Customize `.hyperspec/alignment-procedure.md` (test execution, framework checks, verification commands) and `.hyperspec/specignore` to match your project structure.
