@@ -74,15 +74,15 @@ Invoke `/setup-hyperspec` in your agent session to initialize `/.hyperspec/`, co
 
 `/setup-hyperspec` installs your repository's Hyperspec configuration under `/.hyperspec/`. Edit these files directly to tailor Hyperspec to your stack and workflow:
 
-| Area                         | File(s)                                                                                                 | Purpose                                                                                            |
-| :--------------------------- | :------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------- |
-| **Intent templates**         | `.hyperspec/templates/intent-issue-template.md`                                                         | Standardize issues created by `/intent`.                                                           |
-| **Issue tracker**            | `.hyperspec/issue-tracker-manual.md`, `.hyperspec/hyperspec.json`                                       | Configure how skills interact with your issue tracker.                                             |
-| **Specs layout & ignored**   | `.hyperspec/specs-organization.md`, `.hyperspec/specignore`                                             | Define `specs/` structure and exclude paths from spec deltas.                                      |
-| **Spec & audit templates**   | `.hyperspec/templates/spec-template.md`, `.hyperspec/templates/alignment-assessment-template.{md,json}` | Standardize specification authoring in `/specs` and drift reports in `/assess-alignment`.          |
+| Area                         | File(s)                                                                                                 | Purpose                                                                                                        |
+| :--------------------------- | :------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------- |
+| **Intent templates**         | `.hyperspec/templates/intent-issue-template.md`                                                         | Standardize issues created by `/intent`.                                                                       |
+| **Issue tracker**            | `.hyperspec/issue-tracker-manual.md`, `.hyperspec/hyperspec.json`                                       | Configure how skills interact with your issue tracker.                                                         |
+| **Specs layout & ignored**   | `.hyperspec/specs-organization.md`, `.hyperspec/specignore`                                             | Define `specs/` structure and exclude paths from spec deltas.                                                  |
+| **Spec & audit templates**   | `.hyperspec/templates/spec-template.md`, `.hyperspec/templates/alignment-assessment-template.{md,json}` | Standardize specification authoring in `/specs` and drift reports in `/assess-alignment`.                      |
 | **Alignment procedure**      | `.hyperspec/alignment-procedure.md`                                                                     | Define the global alignment process orchestrated by `/align` (typically delegating to `/implement` subagents). |
 | **Implementation procedure** | `.hyperspec/implementation-procedure.md`                                                                | Define how each subagent executing `/implement` aligns assigned artifacts.                                     |
-| **Agent rules**              | `.agents/rules/` (Antigravity) or `.github/AGENTS.md` (Copilot)                                         | Enforce workspace-wide agent constraints and conventions.                                          |
+| **Agent rules**              | `.agents/rules/` (Antigravity) or `.github/AGENTS.md` (Copilot)                                         | Enforce workspace-wide agent constraints and conventions.                                                      |
 
 ## FAQ
 

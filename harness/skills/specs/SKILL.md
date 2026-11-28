@@ -15,6 +15,22 @@ Coordinate the authoring, expansion, and mutation of declarative specifications 
 
 ## Procedure
 
+### 0. Pre-iteration Setup
+
+If the user intent contains a reference to an issue:
+
+- Read `/.hyperspec/issue-tracker-manual.md`
+- Fetch the relevant issue details from the issue tracker
+
+The spec editing must occur in a dedicated feature branch, named `feature/feature-name` (kebab-case):
+
+- If the repository is already on a feature branch, go to step 1.
+- Otherwise:
+  - Propose to the user a feature branch name and wait for approval before creating it.
+  - Create the feature branch with the command: `git switch -c <feature-branch-name> main`.
+  - Push the feature branch to the remote: `git push -u origin <feature-branch-name>`.
+  - Go to step 1.
+
 ### 1. Context Scoping (Delegation to `spec-context-scoper`)
 
 Invoke a scoper subagent with the user intent:
@@ -30,6 +46,13 @@ Invoke a spec editor subagent subagent:
 
 - Invoke the `/spec-editor` skill and take as input the user intent along with the **complete output report** produced by `spec-context-scoper`.
 - It returns an execution summary report detailing changes made, structural validation status, and unsolved open points.
+
+### 3. Commit and push changes, create the PR
+
+- Commit all changes.
+- Push the changes to the remote repository.
+- Read `/.hyperspec/issue-tracker-manual.md`.
+- If not already created, create the PR, ensuring it references the issue or context for review.
 
 ## Output Schema
 

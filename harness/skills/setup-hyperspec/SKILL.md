@@ -25,28 +25,28 @@ Inspect `assets/standards/`:
 - If only `default` exists, proceed directly with `default`.
 - If multiple standards exist, prompt the user to pick one (defaulting to `default`) and pass it to the setup script.
 
-### 2. Setup Script Execution
+### 2. Issue Tracker Selection & Setup Script Execution
 
-Run the OS-appropriate setup script (passing the chosen standard when multiple exist):
+1. Ask the user which issue tracker to use: `github`, `gitlab`, `local`, or `custom`.
+2. Run the OS-appropriate setup script (passing `--standard`/`-Standard` when multiple exist and `--issue-tracker`/`-IssueTracker` with the selected tracker):
 
 - **Windows**:
   ```powershell
-  powershell -ExecutionPolicy Bypass -File scripts/setup.ps1 [standard]
+  powershell -ExecutionPolicy Bypass -File scripts/setup.ps1 [-Standard <standard>] -IssueTracker <tracker>
   ```
 - **POSIX (Linux/macOS)**:
   ```bash
-  sh scripts/setup.sh [standard]
+  sh scripts/setup.sh [--standard <standard>] --issue-tracker <tracker>
   ```
 
 Confirm the script outputs status `SUCCESS`.
 
 ### 3. Issue Tracker Configuration
 
-1. Ask the user which issue tracker to use: `github`, `gitlab`, `local`, or `custom`.
-2. Store the selection in `/.hyperspec/hyperspec.json` under `"issue-tracker"`, preserving existing keys.
-3. When `custom` is selected:
+1. Store the selection in `/.hyperspec/hyperspec.json` under `"issue-tracker"`, preserving existing keys.
+2. When `custom` is selected:
    - Ask the user to describe how to list, view, create, and update issues.
-   - Save the procedure for each action in `/.hyperspec/issue-trackers/custom-issue-tracker-procedure.md` under dedicated sections (`List Issues`, `View an Issue`, `Create an Issue`, `Update an Issue`).
+   - Save the procedure for each action in `/.hyperspec/issue-tracker-manual.md` under dedicated sections (`List Issues`, `View an Issue`, `Create an Issue`, `Update an Issue`).
 
 ### 4. Preflight Checks
 
@@ -72,8 +72,8 @@ Resolve any reported failure and re-run the preflight script:
 
 - Confirm both setup and preflight scripts output status `SUCCESS`.
 - Confirm `/.hyperspec/hyperspec.json` exists and contains `"version": "0.3.0"` and `"issue-tracker"`.
-- Confirm `/.hyperspec/issue-trackers/custom-issue-tracker-procedure.md` exists when `"issue-tracker"` is `"custom"`.
-- Confirm `/.hyperspec/specs-organization.md`, `/.hyperspec/implementation-procedure.md`, `/.hyperspec/alignment-procedure.md`, `/.hyperspec/specignore`, `/.hyperspec/issue-trackers/`, and `/.hyperspec/templates/` exist.
+- Confirm `/.hyperspec/issue-tracker-manual.md` exists.
+- Confirm `/.hyperspec/specs-organization.md`, `/.hyperspec/implementation-procedure.md`, `/.hyperspec/alignment-procedure.md`, `/.hyperspec/specignore`, and `/.hyperspec/templates/` exist.
 
 ## Output Schema
 

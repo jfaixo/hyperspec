@@ -6,7 +6,9 @@ WORKSPACE_ROOT="$(pwd)"
 HYPERSPEC_DIR="${WORKSPACE_ROOT}/.hyperspec"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 STANDARDS_DIR="${SCRIPT_DIR}/../assets/standards"
+ISSUE_TRACKERS_DIR="${SCRIPT_DIR}/../assets/issue-trackers"
 SELECTED_STANDARD=""
+SELECTED_ISSUE_TRACKER=""
 
 while [ $# -gt 0 ]; do
     case "$1" in
@@ -20,6 +22,18 @@ while [ $# -gt 0 ]; do
             ;;
         --standard=*)
             SELECTED_STANDARD="${1#--standard=}"
+            shift
+            ;;
+        -t|--issue-tracker)
+            if [ -z "${2:-}" ]; then
+                echo '{"status":"FAILED","error":"Missing value for --issue-tracker"}'
+                exit 1
+            fi
+            SELECTED_ISSUE_TRACKER="$2"
+            shift 2
+            ;;
+        --issue-tracker=*)
+            SELECTED_ISSUE_TRACKER="${1#--issue-tracker=}"
             shift
             ;;
         -*)
@@ -144,5 +158,28 @@ mkdir -p "${HYPERSPEC_DIR}"
 cp -R "${SOURCE_ASSETS_DIR}"/. "${HYPERSPEC_DIR}/"
 echo "[setup-hyperspec] Installed standard '${SELECTED_STANDARD}' to ${HYPERSPEC_DIR}"
 
-echo "{\"status\":\"SUCCESS\",\"version\":\"0.3.0\",\"standard\":\"${SELECTED_STANDARD}\"}"
+if [ -n "$SELECTED_ISSUE_TRACKER" ]; then
+    case "$SELECTED_ISSUE_TRACKER" in
+        github) TRACKER_FILE="github-cli.md" ;;
+        gitlab) TRACKER_FILE="gitlab-cli.md" ;;
+        local)  TRACKER_FILE="local.md" ;;
+        custom) TRACKER_FILE="" ;;
+        *)
+            echo "{\"status\":\"FAILED\",\"error\":\"Invalid issue tracker: ${SELECTED_ISSUE_TRACKER}. Expected: github, gitlab, local, or custom.\"}"
+            exit 1
+            ;;
+    esac
+
+    if [ -n "$TRACKER_FILE" ]; then
+        SOURCE_TRACKER="${ISSUE_TRACKERS_DIR}/${TRACKER_FILE}"
+        if [ ! -f "$SOURCE_TRACKER" ]; then
+            echo "{\"status\":\"FAILED\",\"error\":\"Issue tracker manual not found at ${SOURCE_TRACKER}\"}"
+            exit 1
+        fi
+        cp "$SOURCE_TRACKER" "${HYPERSPEC_DIR}/issue-tracker-manual.md"
+        echo "[setup-hyperspec] Installed issue tracker manual '${SELECTED_ISSUE_TRACKER}' to ${HYPERSPEC_DIR}/issue-tracker-manual.md"
+    fi
+fi
+
+echo "{\"status\":\"SUCCESS\",\"version\":\"0.3.0\",\"standard\":\"${SELECTED_STANDARD}\",\"issue_tracker\":\"${SELECTED_ISSUE_TRACKER}\"}"
 

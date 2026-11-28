@@ -2,7 +2,9 @@
 [CmdletBinding()]
 param(
     [Parameter(Position = 0)]
-    [string]$Standard
+    [string]$Standard,
+    [Parameter(Position = 1)]
+    [string]$IssueTracker
 )
 
 $ErrorActionPreference = "Stop"
@@ -12,6 +14,7 @@ $hyperspecDir = Join-Path $workspaceRoot ".hyperspec"
 $configPath = Join-Path $hyperspecDir "hyperspec.json"
 $scriptDir = $PSScriptRoot
 $standardsDir = Join-Path $scriptDir "..\assets\standards"
+$issueTrackersDir = Join-Path $scriptDir "..\assets\issue-trackers"
 
 Write-Host "[setup-hyperspec] Initializing Hyperspec..."
 
@@ -89,10 +92,40 @@ if (-not (Test-Path -Path $hyperspecDir)) {
 Get-ChildItem -Path $sourceAssetsDir -Force | Copy-Item -Destination $hyperspecDir -Recurse -Force
 Write-Host "[setup-hyperspec] Installed standard '$selectedStandard' to $hyperspecDir"
 
+if (-not [string]::IsNullOrWhiteSpace($IssueTracker)) {
+    $trackerFile = switch ($IssueTracker) {
+        "github" { "github-cli.md" }
+        "gitlab" { "gitlab-cli.md" }
+        "local"  { "local.md" }
+        "custom" { $null }
+        default {
+            Write-Output (@{
+                status = "FAILED"
+                error = "Invalid issue tracker: $IssueTracker. Expected: github, gitlab, local, or custom."
+            } | ConvertTo-Json)
+            exit 1
+        }
+    }
+
+    if ($trackerFile) {
+        $sourceTracker = Join-Path $issueTrackersDir $trackerFile
+        if (-not (Test-Path -Path $sourceTracker -PathType Leaf)) {
+            Write-Output (@{
+                status = "FAILED"
+                error = "Issue tracker manual not found at $sourceTracker"
+            } | ConvertTo-Json)
+            exit 1
+        }
+        Copy-Item -Path $sourceTracker -Destination (Join-Path $hyperspecDir "issue-tracker-manual.md") -Force
+        Write-Host "[setup-hyperspec] Installed issue tracker manual '$IssueTracker' to $(Join-Path $hyperspecDir 'issue-tracker-manual.md')"
+    }
+}
+
 Write-Output (@{
     status = "SUCCESS"
     version = "0.3.0"
     standard = $selectedStandard
+    issue_tracker = $IssueTracker
     configPath = $configPath
 } | ConvertTo-Json)
 

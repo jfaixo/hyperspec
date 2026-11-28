@@ -15,8 +15,7 @@ Collaborate with the user to structure a high-level need using the repository's 
 
 ### 1. Determine Action & Context
 
-1. Read `/.hyperspec/hyperspec.json` to identify `"issue-tracker"`, load the matching reference from `/.hyperspec/issue-trackers/`, and read `/.hyperspec/templates/intent-issue-template.md`.
-2. Inspect the target issue when an issue number or URL is given; otherwise list or search open issues to prevent duplicates.
+1. Read `/.hyperspec/hyperspec.json` to identify `"issue-tracker"`, load `/.hyperspec/issue-tracker-manual.md`, and read `/.hyperspec/templates/intent-issue-template.md`.
 2. Inspect the target issue when an issue reference (number, URL, or path) is given; otherwise list or search open issues to prevent duplicates.
 3. Gather high-level requirements: target personas, motivations, expected outcomes, scope boundaries, and likely impacted specifications. Ask clarifying questions when details are missing.
 4. Keep requsirements high-level; defer detailed acceptance criteria (AACs), test matrices, and low-level API contracts to `specs/` via `/specs`.
@@ -28,18 +27,10 @@ Collaborate with the user to structure a high-level need using the repository's 
 
 ### 3. Execute
 
-Run the create or update procedure from the selected `/.hyperspec/issue-trackers/` reference, passing the markdown body via a file or stdin when applicable to preserve formatting and backticks.
+Run the create or update procedure from `/.hyperspec/issue-tracker-manual.md`, passing the markdown body via a file or stdin when applicable to preserve formatting and backticks.
 
 ### 4. Verify & Report
 
 1. View the created or updated issue with the issue tracker to confirm the result.
 2. Share the issue number and URL with the user.
-2. Share the issue reference (number, URL, or file path) with the user.
 3. State that the next step is either iterating on the issue content, or refining the design in `specs/` using the `/specs` skill.
-
-### Annex: Available issue trackers
-
-- **GitHub CLI (`gh`)**: `/.hyperspec/issue-trackers/github-cli.md`
-- **GitLab CLI (`glab`)**: `/.hyperspec/issue-trackers/gitlab-cli.md`
-- **Local**: `/.hyperspec/issue-trackers/local.md`
-- **Custom**: `/.hyperspec/issue-trackers/custom-issue-tracker-procedure.md`

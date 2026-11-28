@@ -39,3 +39,8 @@ Strictly follow the alignment procedure defined in `/.hyperspec/alignment-proced
 ### 5. Mark Specs Aligned
 
 Update the status metadata of all specifications to `ALIGNED`, and mark the alignment complete in the `alignment-status` artifact.
+
+### 6. Commit and push changes
+
+- Commit all changes.
+- Push the changes to the remote repository.

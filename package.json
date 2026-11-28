@@ -1,11 +1,10 @@
 {
   "name": "hyperspec",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.3.0",
+  "description": "Specs as an absolute, declarative design plane.",
   "keywords": [],
-  "license": "ISC",
+  "license": "MIT",
   "author": "",
-  "main": "index.js",
   "scripts": {
     "fmt": "oxfmt"
   },
