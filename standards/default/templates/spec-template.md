@@ -1,5 +1,5 @@
 ---
-hyperspec-version: 0.3.0
+hyperspec-version: 0.3.1
 status: DRAFT | APPROVED | ALIGNED
 tags: opinionated
 ---

@@ -71,7 +71,7 @@ Resolve any reported failure and re-run the preflight script:
 ### 5. Verification Gate
 
 - Confirm both setup and preflight scripts output status `SUCCESS`.
-- Confirm `/.hyperspec/hyperspec.json` exists and contains `"version": "0.3.0"` and `"issue-tracker"`.
+- Confirm `/.hyperspec/hyperspec.json` exists and contains `"version": "0.3.1"` and `"issue-tracker"`.
 - Confirm `/.hyperspec/issue-tracker-manual.md` exists.
 - Confirm `/.hyperspec/specs-organization.md`, `/.hyperspec/implementation-procedure.md`, `/.hyperspec/alignment-procedure.md`, `/.hyperspec/specignore`, and `/.hyperspec/templates/` exist.
 
@@ -82,7 +82,7 @@ Upon completing initialization, emit:
 
 ### Hyperspec Setup Summary
 
-- **Hyperspec Version**: `0.3.0`
+- **Hyperspec Version**: `0.3.1`
 - **Standard**: `[selected standard]`
 - **Issue Tracker**: `[github | gitlab | local | custom]`
 - **Status**: `[SUCCESS | FAILED]`

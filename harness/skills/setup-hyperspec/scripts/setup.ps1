@@ -123,7 +123,7 @@ if (-not [string]::IsNullOrWhiteSpace($IssueTracker)) {
 
 Write-Output (@{
     status = "SUCCESS"
-    version = "0.3.0"
+    version = "0.3.1"
     standard = $selectedStandard
     issue_tracker = $IssueTracker
     configPath = $configPath

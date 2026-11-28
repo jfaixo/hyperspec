@@ -181,5 +181,5 @@ if [ -n "$SELECTED_ISSUE_TRACKER" ]; then
     fi
 fi
 
-echo "{\"status\":\"SUCCESS\",\"version\":\"0.3.0\",\"standard\":\"${SELECTED_STANDARD}\",\"issue_tracker\":\"${SELECTED_ISSUE_TRACKER}\"}"
+echo "{\"status\":\"SUCCESS\",\"version\":\"0.3.1\",\"standard\":\"${SELECTED_STANDARD}\",\"issue_tracker\":\"${SELECTED_ISSUE_TRACKER}\"}"
 
